@@ -5,3 +5,6 @@
 /XamExecuteAndWait/bin/Release
 /XamExecuteAndWait/obj
 /XamExecuteAndWait/bin/Debug
+/Sample/Sample/obj
+/Sample/Sample.Android/obj
+/Sample/Sample.iOS/obj
