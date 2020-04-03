@@ -18,21 +18,18 @@ namespace Sample.ViewModels
         {
             Title = "Main Page";
 
-            SampleCommand = new DelegateCommand(async () =>
+            SampleCommand = new DelegateCommand(() =>
             {
-                await Action();
+                Action();
             });
         }
 
-        private async Task Action()
+        private void Action()
         {
-            await Plugin.XamExecuteAndWait.CrossXamExecuteAndWait.Current.ExecuteAndWait(() =>
+            Plugin.XamExecuteAndWait.CrossXamExecuteAndWait.Current.ExecuteAndWait(() =>
             {
-               for(var i = 0; i < 10000; i++)
-               {
-
-               }
-            }, new LoadingView());
+                NavigationService.NavigateAsync("NavigationPage/SecondPage");
+            }, new LoadingView());            
         }
     }
 }
