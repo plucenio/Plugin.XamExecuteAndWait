@@ -8,3 +8,6 @@
 /Sample/Sample/obj
 /Sample/Sample.Android/obj
 /Sample/Sample.iOS/obj
+/Sample/Sample/bin/Debug/netstandard2.0
+/Sample/Sample/bin/Release/netstandard2.0
+/Sample/Sample.Android/bin
