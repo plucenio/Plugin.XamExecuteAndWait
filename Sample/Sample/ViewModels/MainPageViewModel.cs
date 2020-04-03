@@ -1,6 +1,11 @@
-﻿using Prism.Commands;
+﻿using DryIoc;
+using ImTools;
+using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
+using Rg.Plugins.Popup.Contracts;
+using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Services;
 using Sample.Views.Components;
 using System;
 using System.Threading.Tasks;
@@ -18,18 +23,19 @@ namespace Sample.ViewModels
         {
             Title = "Main Page";
 
-            SampleCommand = new DelegateCommand(() =>
+            SampleCommand = new DelegateCommand(async () =>
             {
-                Action();
+                await Action();
             });
         }
 
-        private void Action()
+        private async Task Action()
         {
-            Plugin.XamExecuteAndWait.CrossXamExecuteAndWait.Current.ExecuteAndWait(() =>
+            await Plugin.XamExecuteAndWait.CrossXamExecuteAndWait.Current.ExecuteAndWait(() =>
             {
+                Task.Delay(1000);
                 NavigationService.NavigateAsync("NavigationPage/SecondPage");
             }, new LoadingView());            
-        }
+        }        
     }
 }

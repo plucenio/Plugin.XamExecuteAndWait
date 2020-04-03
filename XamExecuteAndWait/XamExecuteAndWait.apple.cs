@@ -25,9 +25,6 @@ namespace Plugin.XamExecuteAndWait
 
         public async Task ExecuteAndWait(Action action, View view)
         {
-            var o = new object();
-
-            IPopupNavigation ipn = PopupNavigation.Instance;
             var popup = new PopupPage()
             {
                 CloseWhenBackgroundIsClicked = false,
@@ -35,15 +32,10 @@ namespace Plugin.XamExecuteAndWait
                 BackgroundColor = Color.Transparent,
                 IsBusy = true,
             };
-
+            IPopupNavigation ipn = PopupNavigation.Instance;
             await ipn.PushAsync(popup);
-
-            MessagingCenter.Subscribe<object>(o, "ExecuteAndWaitPage", message => {
-                ipn.RemovePageAsync(popup);
-            });
-
             action.Invoke();
-            MessagingCenter.Send(o, "ExecuteAndWaitPage");
+            await ipn.RemovePageAsync(popup);
         }
     }
 }
