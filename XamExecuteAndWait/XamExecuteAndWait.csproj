@@ -30,11 +30,11 @@
     <DebugType>portable</DebugType>
     
     <!--TODO: Fill these in-->
-    <PackageLicenseUrl>LINK TO LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>LINK TO PROJECT</PackageProjectUrl>
-    <RepositoryUrl>LINK TO PROJECT</RepositoryUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/plucenio/Plugin.XamExecuteAndWait</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/plucenio/Plugin.XamExecuteAndWait</RepositoryUrl>
     <PackageReleaseNotes>RELEASE NOTES</PackageReleaseNotes>
-    <PackageIconUrl>ICON URL</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <PackageTags>xamarin, ios, android, xamarin.forms, plugin, XamExecuteAndWait</PackageTags>
     
     <Title>XamExecuteAndWait Plugin for Xamarin and Windows</Title>
@@ -49,6 +49,8 @@
     <!--When built in 2019 will remove extra references on pack-->
     <DisableExtraReferences>true</DisableExtraReferences>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageIcon>ExecuteAndWait.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     
   </PropertyGroup>
 
@@ -93,6 +95,13 @@
     <Reference Include="Mono.Android">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Desktop\ExecuteAndWait.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <!--Additional item groups-->
