@@ -5,10 +5,8 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Button Text="Sample 1"
-                Command="{Binding Sample1Command}"/>
-        <Button Text="Sample 2"
-                Command="{Binding Sample2Command}"/>
+        <Button Text="Sample command"
+                Command="{Binding SampleCommand}"/>
     </StackLayout>
 
 </ContentPage>

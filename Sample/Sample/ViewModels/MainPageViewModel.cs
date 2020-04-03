@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Navigation;
+using Prism.Services;
 using Sample.Views.Components;
 using System;
 using System.Threading.Tasks;
@@ -10,30 +11,28 @@ namespace Sample.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        public ICommand Sample1Command { get; set; }
-
-        public ICommand Sample2Command { get; set; }
+        public ICommand SampleCommand { get; set; }
 
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
             Title = "Main Page";
 
-            Sample1Command = new DelegateCommand(async () => 
+            SampleCommand = new DelegateCommand(async () =>
             {
-                await Plugin.XamExecuteAndWait.CrossXamExecuteAndWait.Current.ExecuteAndWait(() => 
-                {
-                    Task.Delay(3000);
-                }, new Label() { Text = "Loading", Parent = new Grid() { BackgroundColor = Color.Blue } });
+                await Action();
             });
+        }
 
-            Sample2Command = new DelegateCommand(async () =>
+        private async Task Action()
+        {
+            await Plugin.XamExecuteAndWait.CrossXamExecuteAndWait.Current.ExecuteAndWait(() =>
             {
-                await Plugin.XamExecuteAndWait.CrossXamExecuteAndWait.Current.ExecuteAndWait(() =>
-                {
-                    Task.Delay(3000);
-                }, new LoadingView());
-            });
+               for(var i = 0; i < 10000; i++)
+               {
+
+               }
+            }, new LoadingView());
         }
     }
 }
